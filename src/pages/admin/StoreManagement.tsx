@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useAdminStore } from '@/hooks/useAdminStore';
