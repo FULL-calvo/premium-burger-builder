@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
 import {
   LayoutDashboard, UtensilsCrossed, Store, ClipboardList,
-  Users, Settings, ChevronLeft, ChevronRight, LogOut, Menu,
+  Users, Settings, ChevronLeft, ChevronRight, LogOut, Menu, Truck,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAdminStore } from '@/hooks/useAdminStore';
@@ -11,6 +11,7 @@ const navItems = [
   { label: 'Dashboard', icon: LayoutDashboard, path: '/admin' },
   { label: 'Cardápio', icon: UtensilsCrossed, path: '/admin/menu' },
   { label: 'Loja', icon: Store, path: '/admin/store' },
+  { label: 'Entregas', icon: Truck, path: '/admin/delivery' },
   { label: 'Pedidos', icon: ClipboardList, path: '/admin/orders' },
   { label: 'Usuários', icon: Users, path: '/admin/users' },
   { label: 'Configurações', icon: Settings, path: '/admin/settings' },
