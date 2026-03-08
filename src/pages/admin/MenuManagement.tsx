@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Pencil, Trash2, Power } from 'lucide-react';
+import { Plus, Pencil, Trash2, Power, Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
@@ -200,8 +200,36 @@ const MenuManagement = ({ adminStore }: Props) => {
               </div>
             </div>
             <div>
-              <label className="text-xs font-medium text-muted-foreground">URL da Imagem</label>
-              <Input value={form.image} onChange={e => setForm({ ...form, image: e.target.value })} placeholder="https://..." />
+              <label className="text-xs font-medium text-muted-foreground">Imagem do Produto</label>
+              <div className="flex items-center gap-3 mt-1">
+                {form.image && (
+                  <img src={form.image} alt="Preview" className="w-16 h-16 rounded-lg object-cover border border-border" />
+                )}
+                <label className="cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border bg-muted text-sm font-medium text-foreground hover:bg-muted/80 transition-colors">
+                  <Upload className="w-4 h-4" />
+                  {form.image ? 'Trocar Imagem' : 'Enviar Imagem'}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={e => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        const reader = new FileReader();
+                        reader.onload = ev => {
+                          setForm({ ...form, image: ev.target?.result as string });
+                        };
+                        reader.readAsDataURL(file);
+                      }
+                    }}
+                  />
+                </label>
+                {form.image && (
+                  <button onClick={() => setForm({ ...form, image: '' })} className="text-xs text-destructive hover:underline">
+                    Remover
+                  </button>
+                )}
+              </div>
             </div>
           </div>
           <DialogFooter>
