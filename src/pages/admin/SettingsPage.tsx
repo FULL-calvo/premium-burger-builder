@@ -11,6 +11,15 @@ const SettingsPage = ({ adminStore }: Props) => {
   const { darkMode, setDarkMode, resetDemo } = adminStore;
   const { toast } = useToast();
 
+  const toggleTheme = (dark: boolean) => {
+    setDarkMode(dark);
+    if (dark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
   const handleBackup = () => {
     toast({ title: 'Backup realizado!', description: 'Dados exportados com sucesso (simulação).' });
   };
