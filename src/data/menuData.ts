@@ -70,7 +70,7 @@ export const menuItems: MenuItem[] = [
     name: 'Veggie Grill',
     description: 'Hambúrguer de grão-de-bico, queijo muçarela, rúcula e tomate seco.',
     price: 29.90,
-    image: 'https://images.unsplash.com/photo-1520072959219-c595e6cdc07a?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&q=80',
     category: 'burgers',
   },
   {
