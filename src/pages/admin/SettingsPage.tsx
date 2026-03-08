@@ -11,6 +11,15 @@ const SettingsPage = ({ adminStore }: Props) => {
   const { darkMode, setDarkMode, resetDemo } = adminStore;
   const { toast } = useToast();
 
+  const toggleTheme = (dark: boolean) => {
+    setDarkMode(dark);
+    if (dark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
   const handleBackup = () => {
     toast({ title: 'Backup realizado!', description: 'Dados exportados com sucesso (simulação).' });
   };
@@ -27,7 +36,7 @@ const SettingsPage = ({ adminStore }: Props) => {
         <h2 className="text-sm font-bold text-foreground mb-4">Aparência</h2>
         <div className="flex items-center gap-4">
           <button
-            onClick={() => setDarkMode(true)}
+            onClick={() => toggleTheme(true)}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
               darkMode ? 'bg-primary/15 text-primary border border-primary/30' : 'bg-muted text-muted-foreground'
             }`}
@@ -35,7 +44,7 @@ const SettingsPage = ({ adminStore }: Props) => {
             <Moon className="w-4 h-4" /> Escuro
           </button>
           <button
-            onClick={() => setDarkMode(false)}
+            onClick={() => toggleTheme(false)}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
               !darkMode ? 'bg-primary/15 text-primary border border-primary/30' : 'bg-muted text-muted-foreground'
             }`}
@@ -43,7 +52,7 @@ const SettingsPage = ({ adminStore }: Props) => {
             <Sun className="w-4 h-4" /> Claro
           </button>
         </div>
-        <p className="text-xs text-muted-foreground mt-2">Nota: Nesta simulação o tema visual permanece escuro.</p>
+        
       </div>
 
       {/* Notifications */}
