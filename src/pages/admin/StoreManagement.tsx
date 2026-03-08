@@ -79,8 +79,36 @@ const StoreManagement = ({ adminStore }: Props) => {
 
       <div className="bg-card border border-border rounded-xl p-6 space-y-5">
         <h2 className="text-sm font-bold text-foreground">Logo da Empresa</h2>
-        <Field label="URL da Logo" name="logo" />
-        {form.logo && <img src={form.logo} alt="Logo" className="w-20 h-20 rounded-lg object-cover" />}
+        <div className="flex items-center gap-4">
+          {form.logo && <img src={form.logo} alt="Logo" className="w-20 h-20 rounded-lg object-cover border border-border" />}
+          <label className="cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border bg-muted text-sm font-medium text-foreground hover:bg-muted/80 transition-colors">
+            <Upload className="w-4 h-4" />
+            {form.logo ? 'Trocar Logo' : 'Enviar Logo'}
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={e => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onload = ev => {
+                    setForm({ ...form, logo: ev.target?.result as string });
+                  };
+                  reader.readAsDataURL(file);
+                }
+              }}
+            />
+          </label>
+          {form.logo && (
+            <button
+              onClick={() => setForm({ ...form, logo: '' })}
+              className="text-xs text-destructive hover:underline"
+            >
+              Remover
+            </button>
+          )}
+        </div>
       </div>
 
       <Button onClick={handleSave} className="w-full sm:w-auto">Salvar Alterações</Button>
