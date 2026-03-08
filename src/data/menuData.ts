@@ -70,7 +70,7 @@ export const menuItems: MenuItem[] = [
     name: 'Veggie Grill',
     description: 'Hambúrguer de grão-de-bico, queijo muçarela, rúcula e tomate seco.',
     price: 29.90,
-    image: 'https://images.unsplash.com/photo-1520072959219-c595e6cdc07a?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&q=80',
     category: 'burgers',
   },
   {
@@ -86,7 +86,7 @@ export const menuItems: MenuItem[] = [
     name: 'Picanha Burger',
     description: 'Hambúrguer de picanha 200g, queijo provolone, cebola crispy e chimichurri.',
     price: 39.90,
-    image: 'https://images.unsplash.com/photo-1588167056547-c883861d4786?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80',
     category: 'burgers',
   },
 
