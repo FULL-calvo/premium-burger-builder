@@ -30,7 +30,7 @@ const MenuCard = ({ item, onAdd }: MenuCardProps) => {
             className="flex items-center gap-1 px-4 py-2 bg-primary text-primary-foreground font-semibold text-sm rounded-lg hover:brightness-110 transition-all hover:scale-105"
           >
             <Plus className="w-4 h-4" />
-            Adicionar
+            Pedir
           </button>
         </div>
       </div>

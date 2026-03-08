@@ -86,7 +86,7 @@ export const menuItems: MenuItem[] = [
     name: 'Picanha Burger',
     description: 'Hambúrguer de picanha 200g, queijo provolone, cebola crispy e chimichurri.',
     price: 39.90,
-    image: 'https://images.unsplash.com/photo-1608767221gy5?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1588167056547-c883861d4786?w=600&q=80',
     category: 'burgers',
   },
 
