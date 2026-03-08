@@ -1,5 +1,22 @@
 import { menuItems, MenuItem } from './menuData';
 
+// ── Delivery Zones ──
+export interface DeliveryZone {
+  id: string;
+  name: string;
+  fee: number;
+}
+
+export const defaultDeliveryZones: DeliveryZone[] = [
+  { id: 'z1', name: 'Centro', fee: 5.00 },
+  { id: 'z2', name: 'Consolação', fee: 6.00 },
+  { id: 'z3', name: 'Pinheiros', fee: 7.50 },
+  { id: 'z4', name: 'Vila Mariana', fee: 8.00 },
+  { id: 'z5', name: 'Moema', fee: 9.50 },
+  { id: 'z6', name: 'Itaim Bibi', fee: 10.00 },
+  { id: 'z7', name: 'Outros', fee: 12.00 },
+];
+
 // ── Store Settings ──
 export interface StoreSettings {
   name: string;

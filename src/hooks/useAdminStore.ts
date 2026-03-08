@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { menuItems as initialMenu, MenuItem } from '@/data/menuData';
 import {
   defaultStoreSettings, StoreSettings,
+  defaultDeliveryZones, DeliveryZone,
   mockOrders, Order, OrderStatus,
   mockUsers, AdminUser, UserRole,
 } from '@/data/adminData';
@@ -41,6 +42,22 @@ export function useAdminStore() {
     setStore(prev => ({ ...prev, ...data }));
   }, []);
 
+  // Delivery Zones
+  const [deliveryZones, setDeliveryZones] = useState<DeliveryZone[]>(defaultDeliveryZones);
+
+  const addDeliveryZone = useCallback((zone: Omit<DeliveryZone, 'id'>) => {
+    const id = `z-${Date.now()}`;
+    setDeliveryZones(prev => [...prev, { ...zone, id }]);
+  }, []);
+
+  const updateDeliveryZone = useCallback((id: string, data: Partial<DeliveryZone>) => {
+    setDeliveryZones(prev => prev.map(z => z.id === id ? { ...z, ...data } : z));
+  }, []);
+
+  const removeDeliveryZone = useCallback((id: string) => {
+    setDeliveryZones(prev => prev.filter(z => z.id !== id));
+  }, []);
+
   // Orders
   const [orders, setOrders] = useState<Order[]>(mockOrders);
 
@@ -71,6 +88,7 @@ export function useAdminStore() {
   const resetDemo = useCallback(() => {
     setMenu(initialMenu.map(i => ({ ...i, active: true })));
     setStore(defaultStoreSettings);
+    setDeliveryZones(defaultDeliveryZones);
     setOrders(mockOrders);
     setUsers(mockUsers);
   }, []);
@@ -78,6 +96,7 @@ export function useAdminStore() {
   return {
     menu, addMenuItem, updateMenuItem, removeMenuItem, toggleMenuItem,
     store, updateStore,
+    deliveryZones, addDeliveryZone, updateDeliveryZone, removeDeliveryZone,
     orders, updateOrderStatus,
     users, addUser, updateUser, removeUser,
     darkMode, setDarkMode,
