@@ -22,16 +22,27 @@ const Navbar = ({ cartCount, onCartClick }: NavbarProps) => {
           <a href="#menu" className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors">Cardápio</a>
           <a href="#about" className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors">Sobre</a>
           <a href="#contact" className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors">Contato</a>
+          <button
+            onClick={onCartClick}
+            className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors relative"
+          >
+            Pedidos
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-4 bg-secondary text-secondary-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                {cartCount}
+              </span>
+            )}
+          </button>
         </div>
 
         <div className="flex items-center gap-3">
           <button
             onClick={onCartClick}
-            className="relative p-2 rounded-lg hover:bg-muted transition-colors"
+            className="md:hidden text-sm font-semibold text-muted-foreground hover:text-primary transition-colors relative"
           >
-            <ShoppingCart className="w-6 h-6 text-primary" />
+            Pedidos
             {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-secondary text-secondary-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+              <span className="absolute -top-2 -right-4 bg-secondary text-secondary-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
                 {cartCount}
               </span>
             )}
