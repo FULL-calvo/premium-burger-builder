@@ -3,6 +3,7 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import Dashboard from './Dashboard';
 import MenuManagement from './MenuManagement';
 import StoreManagement from './StoreManagement';
+import DeliveryZones from './DeliveryZones';
 import OrdersManagement from './OrdersManagement';
 import UsersManagement from './UsersManagement';
 import SettingsPage from './SettingsPage';
@@ -17,6 +18,7 @@ const AdminWrapper = () => {
         <Route index element={<Dashboard adminStore={adminStore} />} />
         <Route path="menu" element={<MenuManagement adminStore={adminStore} />} />
         <Route path="store" element={<StoreManagement adminStore={adminStore} />} />
+        <Route path="delivery" element={<DeliveryZones adminStore={adminStore} />} />
         <Route path="orders" element={<OrdersManagement adminStore={adminStore} />} />
         <Route path="users" element={<UsersManagement adminStore={adminStore} />} />
         <Route path="settings" element={<SettingsPage adminStore={adminStore} />} />
