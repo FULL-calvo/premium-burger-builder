@@ -52,7 +52,7 @@ const SettingsPage = ({ adminStore }: Props) => {
             <Sun className="w-4 h-4" /> Claro
           </button>
         </div>
-        <p className="text-xs text-muted-foreground mt-2">Nota: Nesta simulação o tema visual permanece escuro.</p>
+        
       </div>
 
       {/* Notifications */}
